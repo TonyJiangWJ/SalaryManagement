@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="SalaryManagement" extends="struts-default">
+		<action name="Simple" class="simpleAction">
+			<result name="SUCCESS">/success.jsp</result>
+			<result name="FAILURE">/failure.jsp</result>
+		</action>
+		<action name="showEmployee" class="showEmployee">
+			<result name="SUCCESS">/showEmployee.jsp</result>
+		</action>
+		<action name="showAttendance" class="showAttendance">
+			<result name="SUCCESS">/showAttendance.jsp</result>
+		</action>
+		<action name="showJobs" class="showJobs">
+			<result name="SUCCESS">/showJobs.jsp</result>
+		</action>
+		<action name="showDepartment" class="showDepartment">
+			<result name="SUCCESS">/showDepartment.jsp</result>
+		</action>
+	</package>
+</struts>    

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="attendance" catalog="mydb" class="Attendance"></table>
+	<table name="department" catalog="mydb" class="Department"></table>
+	<table name="employee" catalog="mydb" class="Employee"></table>
+	<table name="job" catalog="mydb" class="Job"></table>
+</hibernate-reverse-engineering>
