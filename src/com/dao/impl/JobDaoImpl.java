@@ -21,7 +21,7 @@ public class JobDaoImpl extends BaseDaoImpl<Job> implements JobDao{
 	public List<Job> find(Job entity) {
 		DetachedCriteria dcCriteria = DetachedCriteria.forClass(Job.class);
 		if(entity.getJobName()!=null)
-			dcCriteria.add(Restrictions.eq("job_name", entity.getJobName()));
+			dcCriteria.add(Restrictions.eq("jobName", entity.getJobName()));
 		return (List<Job>) getHibernateTemplate().findByCriteria(dcCriteria);
 	}
 }

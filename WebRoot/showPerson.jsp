@@ -1,7 +1,6 @@
-<%@page import="com.response.model.EmployeeModel"%>
-<%@page import="com.bean.Employee"%>
-<%@page import="com.alibaba.fastjson.JSON"%>
-<%@page import="com.response.EmployeeResponse"%>
+<%@page import="org.springframework.web.context.request.RequestScope"%>
+<%@page import="com.bean.Salary"%>
+<%@page import="com.response.SalaryResponse"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
@@ -15,7 +14,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'showEmployee.jsp' starting page</title>
+<title>My JSP 'showPerson.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -31,35 +30,29 @@
 <body style="text-align:center">
 	<table border="1" cellspacing="0" align="center" width="80%">
 		<tr>
-			<td>编号</td>
-			<td>姓名</td>
-			<td>性别</td>
-			<td>年龄</td>
-			<td>地址</td>
-			<td>电话</td>
-			<td>部门</td>
-			<td>职位</td>
+			<td>年份</td>
+			<td>月份</td>
+			<td>用户编号</td>
+			<td>工资</td>
 		</tr>
 		<%
-			EmployeeResponse employeeResponse = (EmployeeResponse) session
-					.getAttribute("employeeResponse");
-			List<EmployeeModel> result = employeeResponse.getResult();
+			SalaryResponse salaryResponse = (SalaryResponse)request.getAttribute("salaryResponse");
+			List<Salary> result = salaryResponse.getResult();
 			for (int i = 0; i < result.size(); i++) {
 		%>
 		<tr>
-			<td><a href="showPerson.action?empId=<%=result.get(i).getId()%>"><%=result.get(i).getId()%></a></td>
-			<td><%=result.get(i).getName()%></td>
-			<td><%=result.get(i).getSex()%></td>
-			<td><%=result.get(i).getAge()%></td>
-			<td><%=result.get(i).getAddress()%></td>
-			<td><%=result.get(i).getEmpTel()%></td>
-			<td><%=result.get(i).getDepartment()%></td>
-			<td><%=result.get(i).getJob()%></td>
+			<td><a
+				href="showPerson.action?year=<%=result.get(i).getAttYear()%>&empId=<%=result.get(i).getEmpId()%>"><%=result.get(i).getAttYear()%></a></td>
+			<td><%=result.get(i).getAttMonth()%></td>
+			<td><%=result.get(i).getEmpId()%></td>
+			<td><%=result.get(i).getTotal()%></td>
 		</tr>
+
 		<%
 			}
 		%>
 	</table>
+	<br> 点击年份查看当前员工年工资
 	<br>
 	<a href="index.jsp">返回首页</a>
 	<br>

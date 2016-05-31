@@ -5,7 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	xmlns:tx="http://www.springframework.org/schema/tx">
 
-
+	<bean id="showPerson" class="com.action.ShowPerson">
+		<property name="salaryFacade" ref="salaryFacade" />
+	</bean>
 	<bean id="simpleAction" class="com.action.SimpleDemo">
 		<property name="attendanceService" ref="attendanceService" />
 	</bean>
@@ -88,9 +90,15 @@
 	</bean>
 	<bean id="employeeFacade" class="com.facade.impl.EmployeeFacadeImpl">
 		<property name="employeeService" ref="employeeService" />
+		<property name="departmentService" ref="departmentService" />
+		<property name="jobService" ref="jobService" />
 	</bean>
 	<bean id="jobFacade" class="com.facade.impl.JobFacadeImpl">
-		<property name="jobService" ref="jobService"></property>
+		<property name="jobService" ref="jobService" />
 	</bean>
-
+	<bean id="salaryFacade" class="com.facade.impl.SalaryFacadeImpl">
+		<property name="attendanceService" ref="attendanceService" />
+		<property name="jobService" ref="jobService" />
+		<property name="employeeService" ref="employeeService" />
+	</bean>
 </beans>

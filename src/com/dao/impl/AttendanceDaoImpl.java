@@ -21,9 +21,9 @@ public class AttendanceDaoImpl extends BaseDaoImpl<Attendance> implements Attend
 	public List<Attendance> find(Attendance entity) {
 		DetachedCriteria criteria= DetachedCriteria.forClass(Attendance.class);
 		if(entity.getAttMonth()!=null)
-			criteria.add(Restrictions.eq("att_mounth", entity.getAttMonth()));
+			criteria.add(Restrictions.eq("attMonth", entity.getAttMonth()));
 		if(entity.getAttYear()!=null)
-			criteria.add(Restrictions.eq("att_year", entity.getAttYear()));
+			criteria.add(Restrictions.eq("attYear", entity.getAttYear()));
 		if(entity.getEmpId()!=null)
 			criteria.add(Restrictions.eq("empId", entity.getEmpId()));
 		return (List<Attendance>) getHibernateTemplate().findByCriteria(criteria);

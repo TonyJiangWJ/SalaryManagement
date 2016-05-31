@@ -1,6 +1,7 @@
 package com.base.dao.impl;
 
-
+import java.lang.reflect.ParameterizedType; 
+import java.lang.reflect.Type; 
 import java.util.List;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
@@ -8,7 +9,10 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 import com.base.dao.BaseDao;
 
 public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
-
+	
+	@SuppressWarnings("unchecked")
+	private Class <T> entityClass = (Class <T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+	
 	@Override
 	public void insert(T entity) {
 		// TODO Auto-generated method stub
@@ -32,15 +36,15 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements Base
 	@Override
 	public void deleteById(Integer id) {
 		// TODO Auto-generated method stub
-		getHibernateTemplate().delete(getHibernateTemplate().get(getClass().getName(), id));
+		getHibernateTemplate().delete(getHibernateTemplate().get(entityClass, id));
 	}
 
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public T getById(Integer id) {
 		// TODO Auto-generated method stub
-		return (T)getHibernateTemplate().get(getClass().getName(), id);
+		System.out.println(id);
+		return (T)getHibernateTemplate().get(entityClass, id);
 	}
 
 	@Override

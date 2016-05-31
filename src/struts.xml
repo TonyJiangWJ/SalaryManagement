@@ -18,5 +18,9 @@
 		<action name="showDepartment" class="showDepartment">
 			<result name="SUCCESS">/showDepartment.jsp</result>
 		</action>
+		<action name="showPerson" class="showPerson">
+			<result name="SUCCESS">/showPerson.jsp</result>
+			<result name="SUCCESS_TYPE1">/showPersonYear.jsp</result>
+		</action>
 	</package>
 </struts>    

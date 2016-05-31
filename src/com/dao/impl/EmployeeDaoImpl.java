@@ -17,11 +17,13 @@ public class EmployeeDaoImpl extends BaseDaoImpl<Employee> implements EmployeeDa
 		return (List<Employee>) getHibernateTemplate().find("from Employee");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employee> find(Employee entity) {
+		
 		DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Employee.class);
 		if(entity.getDeptId()!=null)
-			detachedCriteria.add(Restrictions.eq("dept_id", entity.getDeptId()));
+			detachedCriteria.add(Restrictions.eq("deptId", entity.getDeptId()));
 		if(entity.getName()!=null)
 			detachedCriteria.add(Restrictions.eq("name", entity.getName()));
 		if(entity.getSex()!=null)
