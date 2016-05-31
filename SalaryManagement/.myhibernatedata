@@ -1,0 +1,20 @@
+#MyEclipse Hibernate Properties
+#Fri May 27 20:57:05 CST 2016
+genBasicCompId=false
+sessionFactoryName=com.HibernateSessionFactory
+profile=
+daoSFId=
+jndiPath=
+detectM2M=false
+reStrategyClass=
+detectO2O=false
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+genVersionTag=false
+sessionFactoryId=sessionFactory
+basePersistenceClass=
+genAnnotations=false
+reSettingsFile=/SalaryManagement/hibernate.reveng.xml
+configFile=/SalaryManagement/src/applicationContext.xml
+createConfigFile=true
